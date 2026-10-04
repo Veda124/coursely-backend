@@ -4,9 +4,10 @@ const app = express();
 import 'dotenv/config'; // Load environment variables from .env file
 const port = process.env.PORT || 3000; // Use PORT from .env or default to 3000
 import { router as authRoutes } from './src/routes/auth.route.js'; // Import the auth routes
-
+import { router as courseRoutes } from './src/routes/course.route.js'; // Import the course routes
 app.use(express.json()); // Middleware to parse JSON request bodies
 app.use('/api/auth', authRoutes); // Use the auth routes for /api/auth endpoints
+app.use('/api/courses', courseRoutes); // Use the course routes for /api/courses endpoints
 
 connect().then(() => {
     app.listen(port, () => {
